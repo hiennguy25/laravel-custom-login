@@ -14,7 +14,14 @@ use App\Http\Controllers\CustomAuthController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $tasks = [
+        ['name' => 'Task 1'],
+        ['name' => 'Task 2'],
+        ['name' => 'Task 3'],
+        ['name' => 'Task 4'],
+    ];
+
+    return view('welcome', ['tasks' => $tasks]);
 });
 
 Route::get('/login', [CustomAuthController::class, 'login'])->middleware('alreadyLoggedIn');
